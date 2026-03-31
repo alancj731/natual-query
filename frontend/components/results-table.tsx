@@ -32,8 +32,8 @@ export function ResultsTable({
 }: ResultsTableProps) {
   if (columns.length === 0) {
     return (
-      <Card className="bg-zinc-900 border-zinc-700">
-        <CardContent className="py-8 text-center text-zinc-500">
+      <Card className="bg-white border-slate-200 shadow-sm">
+        <CardContent className="py-8 text-center text-slate-400">
           No results returned.
         </CardContent>
       </Card>
@@ -41,16 +41,16 @@ export function ResultsTable({
   }
 
   return (
-    <Card className="bg-zinc-900 border-zinc-700">
+    <Card className="bg-white border-slate-200 shadow-sm">
       <CardHeader className="pb-2 flex flex-row items-center justify-between">
-        <CardTitle className="text-sm font-medium text-zinc-400">
+        <CardTitle className="text-sm font-medium text-slate-500">
           Results
         </CardTitle>
         <div className="flex items-center gap-2">
-          <Badge variant="outline" className="text-zinc-500 border-zinc-700">
+          <Badge variant="outline" className="text-slate-500 border-slate-200">
             {rows.length} row{rows.length !== 1 ? "s" : ""}
           </Badge>
-          <Badge variant="outline" className="text-zinc-500 border-zinc-700">
+          <Badge variant="outline" className="text-slate-500 border-slate-200">
             {executionTimeMs}ms
           </Badge>
         </div>
@@ -58,11 +58,11 @@ export function ResultsTable({
       <CardContent className="overflow-x-auto">
         <Table>
           <TableHeader>
-            <TableRow className="border-zinc-700 hover:bg-transparent">
+            <TableRow className="border-slate-100 hover:bg-transparent">
               {columns.map((col) => (
                 <TableHead
                   key={col}
-                  className="text-zinc-400 font-mono text-xs"
+                  className="text-slate-500 font-mono text-xs"
                 >
                   {col}
                 </TableHead>
@@ -73,12 +73,12 @@ export function ResultsTable({
             {rows.map((row, i) => (
               <TableRow
                 key={i}
-                className="border-zinc-800 hover:bg-zinc-800/50"
+                className="border-slate-50 hover:bg-slate-50"
               >
                 {columns.map((col) => (
                   <TableCell
                     key={col}
-                    className="text-zinc-300 font-mono text-sm"
+                    className="text-slate-700 font-mono text-sm"
                   >
                     {formatValue(row[col])}
                   </TableCell>

@@ -18,22 +18,22 @@ export function SqlDisplay({ sql }: SqlDisplayProps) {
   }
 
   return (
-    <Card className="bg-zinc-900 border-zinc-700">
+    <Card className="bg-slate-50 border-slate-200 shadow-sm">
       <CardHeader className="pb-2 flex flex-row items-center justify-between">
-        <CardTitle className="text-sm font-medium text-zinc-400">
+        <CardTitle className="text-sm font-medium text-slate-500">
           Generated SQL
         </CardTitle>
         <Button
           variant="ghost"
           size="sm"
           onClick={handleCopy}
-          className="text-xs text-zinc-500 hover:text-zinc-300 h-7"
+          className="text-xs text-slate-400 hover:text-slate-600 h-7"
         >
           {copied ? "Copied!" : "Copy"}
         </Button>
       </CardHeader>
       <CardContent>
-        <pre className="text-sm font-mono text-emerald-400 whitespace-pre-wrap overflow-x-auto leading-relaxed">
+        <pre className="text-sm font-mono text-emerald-700 whitespace-pre-wrap overflow-x-auto leading-relaxed bg-white rounded-md p-3 border border-slate-100">
           {sql}
         </pre>
       </CardContent>

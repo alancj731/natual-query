@@ -10,6 +10,8 @@ const EXAMPLE_QUERIES = [
   "Actors in the most films",
   "R-rated films longer than 2 hours",
   "Total revenue by month",
+
+  "Average rental duration by category",
 ];
 
 interface QueryInputProps {
@@ -34,19 +36,19 @@ export function QueryInput({
 
   return (
     <div className="space-y-3">
-      <div className="flex gap-3">
+      <div className="relative">
         <Textarea
           placeholder="Ask a question about the database... (e.g., 'Show me the top 10 customers by total payment')"
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onKeyDown={handleKeyDown}
           rows={3}
-          className="flex-1 resize-none bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-500"
+          className="w-full resize-none bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 shadow-sm pr-24 pt-5"
         />
         <Button
           onClick={onSubmit}
           disabled={loading || !value.trim()}
-          className="self-end px-6"
+          className="absolute top-4 right-2.5 px-4 bg-emerald-800 text-white hover:bg-emerald-900"
         >
           {loading ? (
             <span className="flex items-center gap-2">
@@ -76,18 +78,23 @@ export function QueryInput({
           )}
         </Button>
       </div>
-      <div className="flex flex-wrap gap-2">
-        <span className="text-xs text-zinc-500 self-center">Try:</span>
-        {EXAMPLE_QUERIES.map((q) => (
-          <Badge
-            key={q}
-            variant="outline"
-            className="cursor-pointer hover:bg-zinc-800 text-zinc-400 border-zinc-700 transition-colors"
-            onClick={() => onChange(q)}
-          >
-            {q}
-          </Badge>
-        ))}
+      <div className="flex flex-wrap justify-center gap-1.5">
+        <Badge
+          variant="outline"
+          className="text-slate-400 border-transparent pointer-events-none"
+        >
+          Try:
+        </Badge>
+          {EXAMPLE_QUERIES.map((q) => (
+            <Badge
+              key={q}
+              variant="outline"
+              className="cursor-pointer hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 text-slate-500 border-slate-200 transition-colors"
+              onClick={() => onChange(q)}
+            >
+              {q}
+            </Badge>
+          ))}
       </div>
     </div>
   );
