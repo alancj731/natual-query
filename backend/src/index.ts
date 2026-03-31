@@ -17,7 +17,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001", "https://natual-query-frontend.vercel.app/"],
+    origin: ["http://localhost:3000", "http://localhost:3001", "https://natual-query-frontend.vercel.app"],
     methods: ["POST"],
   })
 );
