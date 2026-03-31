@@ -1,0 +1,10 @@
+{
+  "name": "query-db",
+  "private": true,
+  "scripts": {
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v && docker compose up -d",
+    "db:seed-supabase": "./db/seed-supabase.sh"
+  }
+}
