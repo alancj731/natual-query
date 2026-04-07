@@ -25,7 +25,7 @@ export async function generateSQL(question: string): Promise<string> {
 
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.1-flash-lite-preview",
     systemInstruction: SYSTEM_PROMPT + getSchema(),
   });
 
